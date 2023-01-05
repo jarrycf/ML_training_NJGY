@@ -13,6 +13,9 @@ data = pd.read_csv('./data/Score_train.csv')
 
 # 2. 数据预处理：pca降维
 # transfer = PCA(n_components=0.95)
+# transfer = PCA(n_components=0.95)
+# transfer = PCA(n_components=0.95)
+# 测试git
 # data_new = transfer.fit_transform(data)
 
 # 3. 选择模型
