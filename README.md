@@ -2,19 +2,12 @@
 
 [![language-zh](https://img.shields.io/badge/language-zh-brightgreen)](https://megengine.org.cn/doc/stable/zh/) [![language-en](https://img.shields.io/badge/language-en-brightgreen)](https://megengine.org.cn/doc/stable/en/) [![Crowdin](https://badges.crowdin.net/megengine/localized.svg)](https://crowdin.com/project/megengine) ![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
 
-
-
-
-
-
 本仓库为三周实训项目(11月28日~12月16日)————南京工业职业技术大学人工智能专业大二上学期
 
 <p align="center">
   <img height="256" src="./模型选择/image/image1.png">
   <img height="256" src="./模型选择/image/flask.png">
 </p>
-
-
 
 ## 综述
 
@@ -52,12 +45,12 @@ On Mac 
 pip3 install --user -r requirements.txt
 ```
 
-“mainFrame.pyy”中使用的“必需”软件包中使用到版本是： 
+“mainFrame.pyy”中使用的“必需”软件包中使用到版本是：
 
-* `PyMySQL>=1.0.2` 
-* `pandas>=1.5.2` 
-* `PyQt5>=5.15.7` 
-* `Pillow>=9.3.0` 
+* `PyMySQL>=1.0.2`
+* `pandas>=1.5.2`
+* `PyQt5>=5.15.7`
+* `Pillow>=9.3.0`
 * `joblib>=1.2.0`
 * `numpy==1.23.5`
 * `pyinstaller==5.6.2`
@@ -72,8 +65,6 @@ pip3 install --user -r requirements.txt
 ## 应用功能介绍
 
 基本功能
-
-
 
 ### 数据处理
 
@@ -92,10 +83,6 @@ pip3 install --user -r requirements.txt
 ### 训练模型
 
 ### 测试模型
-
-
-
-
 
 ## 目录介绍
 
@@ -125,8 +112,6 @@ pip3 install --user -r requirements.txt
 
 15 directories, 51 files
 ```
-
-
 
 PyQt实现
 
@@ -176,13 +161,7 @@ PyQt实现
 
 主界面
 
-
-
-
-
 web模型部署实现：
-
-
 
 前端：Vite（vue脚手架）+ElementPlus（组件库）+Axios（HTTP请求数据库）
 
@@ -205,10 +184,6 @@ AIshow1.0\
 |    |----style.css............................................................{css样式文件}
 |----vite.config.js.............................................................{vue配置文件}
 ```
-
-
-
-
 
 后端：flask+Navicat
 
@@ -235,11 +210,13 @@ AIshow1.0\
 
 
 
-表格绘制方式
+ 表格绘制方式--计算机视觉简答题可能考题		
 
 1. 计算每个灰度值的累积频率：对于每个灰度值 $x$，其累积频率 $c(x)$ 可以通过如下方式计算：
 
-$$ c(x) = \sum_{i=0}^{x} p(i) $$
+$$
+c(x) = \sum_{i=0}^{x} p(i)
+$$
 
 其中，$p(i)$ 是灰度值为 $i$ 的像素数占总像素数的比例。
 
@@ -251,15 +228,14 @@ $$ c(x) = \sum_{i=0}^{x} p(i) $$
 
 1. 计算每个灰度值的新灰度值：对于每个灰度值 $x$，它的新灰度值 $y$ 可以通过如下方式计算：
 
-$$ y = \lfloor L \times c(x) \rfloor $$
+$$
+y = \lfloor L \times c(x) \rfloor
+$$
 
 其中，$L$ 是灰度级别，$\lfloor \cdot \rfloor$ 表示下取整。
 
 在上面的例子中，我们可以计算出以下新灰度值：
 
-| 灰度值   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    |
-| -------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 新灰度值 | 0    | 0    | 1    | 1    | 2    | 3    | 4    | 4    | 5    | 5    |
-
-
-
+| 灰度值   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| -------- | - | - | - | - | - | - | - | - | - | - |
+| 新灰度值 | 0 | 0 | 1 | 1 | 2 | 3 | 4 | 4 | 5 | 5 |
