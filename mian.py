@@ -44,6 +44,7 @@ from sklearn.ensemble import ExtraTreesClassifier
 clf = ExtraTreesClassifier()magit.status        
 magit.status
 magit.status
+magit.status
 clf = ExtraTreesClassifier()magit.status        
 clf = ExtraTreesClassifier()magit.status        
 clf.fit(train_x, train_y.astype(int))
