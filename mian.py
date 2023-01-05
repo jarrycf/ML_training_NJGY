@@ -41,7 +41,11 @@ clf.fit(data, estimator.labels_)
 clf.feature_importances_
 
 from sklearn.ensemble import ExtraTreesClassifier
-clf = ExtraTreesClassifier()        
+clf = ExtraTreesClassifier()magit.status        
+magit.status
+magit.status
+clf = ExtraTreesClassifier()magit.status        
+clf = ExtraTreesClassifier()magit.status        
 clf.fit(train_x, train_y.astype(int))
 clf.feature_importances_
 w = 11
