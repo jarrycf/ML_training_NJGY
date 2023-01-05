@@ -86,4 +86,6 @@ param_6={'gamma':np.linspace(0, 0.001, 100)}
 model_6=GridSearchCV(estimator = SVC(kernel = 'rbf'), param_grid = param_6, n_jobs=-1,cv=5)
 model_6.fit(x_train,y_train.astype(int))
 
-pa
+param_3={'n_neighbors':[i for i in range(1,11)], 'p':[i for i in range(1,6)]} 
+model_3=GridSearchCV(estimator = neighbors.KNeighborsClassifier(), param_grid = param_3, n_jobs=-1, cv=5)
+model_3.fit(x_train,y_train.astype(int))
