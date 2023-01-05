@@ -1,0 +1,8 @@
+属性说明：
+X1 the transaction date：交易日期 (例如2013.250=2013年3月，2013.500=2013年6月，等等)
+X2 the house age：房屋年龄（单位：年）
+X3 the distance to the nearest MRT station：离最近地铁站距离（单位：米）
+X4 the number of convenience stores in the living circle on foot：生活圈便利店数量（单位：个）
+X5 the geographic coordinate, latitude：纬度（单位：度）
+X6 the geographic coordinate, longitude：经度（单位：度）
+Y house price of unit area：房屋价格（万元/坪）

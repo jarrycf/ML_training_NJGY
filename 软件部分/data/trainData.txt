@@ -1,0 +1,1 @@
+{"labelEncoder": ["deg-malig", "inv-nodes", "breast-quad", "Class", "irradiat", "tumor-size", "breast", "age", "node-caps", "menopause"], "target": "Class"}

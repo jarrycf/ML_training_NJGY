@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block title %}  {% endblock %}
+
+{% block css %}
+    <style>
+        body {
+            background-color: #E8E8E8;
+        }
+
+        .layui-form-label {
+            width: 100px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="layui-card container" style="margin-top: 20px">
+        <div class="layui-card-header">乳腺癌预测</div>
+        <div class="layui-card-body">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差周长</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="perimeter_worst" required lay-verify="required" placeholder="请输入最差周长"
+                               autocomplete="off" class="layui-input" value="{{ info.perimeter_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差凹点</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="concave_points_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.concave_points_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平均区域</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="area_mean" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.area_mean }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差半径</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="radius_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.radius_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差区域</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="area_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.area_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平均周长</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="perimeter_mean" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.perimeter_mean }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平均凹点</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="concave_points_mean" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.concave_points_mean }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平均半径</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="radius_mean" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.radius_mean }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">平均凹度</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="concavity_mean" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.concavity_mean }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差凹度</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="concavity_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.concavity_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差紧密度</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="compactness_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.compactness_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">区域</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="area_se" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.area_se }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差平滑度</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="smoothness_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.smoothness_worst }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">半径</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="radius_se" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.radius_se }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最差纹理</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="texture_worst" required lay-verify="required" placeholder="请输入"
+                               autocomplete="off" class="layui-input" value="{{ info.texture_worst }}">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即预测</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <h1 id="result" style="color: red;margin-left: 500px"></h1>
+        <div style="height: 300px;width: 100%">
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        //Demo
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                $.ajax({
+                    url: '{% url "predict" %}',
+                    dataType: 'json',
+                    method: 'post',
+                    //JSON.stringify(data.field)
+                    //data: new FormData(  document.getElementById('submitNote') ),
+                    data: {data:JSON.stringify(data.field)},
+                    success: function (data) {
+                        $('#result').text(data.result)
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}

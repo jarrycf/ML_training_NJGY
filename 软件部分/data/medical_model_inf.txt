@@ -1,0 +1,6 @@
+
+        支持向量机在训练集上的准确率为： 0.8282828282828283
+        支持向量机在测试集上的准确率为： 0.9069767441860465
+                    features : ['age', 'menopause', 'tumor-size', 'inv-nodes', 'node-caps', 'deg-malig', 'breast-quad', 'irradiat'],
+                    target : Class
+                            

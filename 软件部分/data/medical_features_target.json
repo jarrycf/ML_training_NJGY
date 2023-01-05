@@ -1,0 +1,1 @@
+{"features": ["age", "menopause", "tumor-size", "inv-nodes", "node-caps", "deg-malig", "breast-quad", "irradiat"], "target": "Class"}

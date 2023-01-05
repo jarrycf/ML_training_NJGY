@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <form action="/predict" method = 'POST'>
+            交易日期:<input type="text" value="1" name="transaction_date"><br>
+            房屋年龄:<input type="text" value="1" name="house_age"><br>
+            最近地铁站距离:<input type="text" value="1"  name="MRT_station"><br>
+            便利店数量:<input type="text" value="1"  name="convenience_stores"><br>
+            纬度:<input type="text" value="1" name="latitude"><br>
+            精度:<input type="text" value="1"  name="longitude"><br>
+            房屋价格:{{result}} <br>
+            <input type="submit" value="Predict">
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block title %} 首页 {% endblock %}
+
+{% block css %}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="modal hidden"></div>
+    <div class="modal loading hidden">
+        <img src="/static/loading.gif" alt="" style="width: 100%;height: 100%">
+    </div>
+
+    <table class="layui-table" style="width: 90%;margin: 10px auto">
+        <thead>
+        <tr>
+            <th>最差周长</th>
+            <th>最差凹点</th>
+            <th>平均区域</th>
+            <th>最差半径</th>
+            <th>最差区域</th>
+            <th>平均周长</th>
+            <th>平均凹点</th>
+            <th>平均半径</th>
+            <th>平均凹度</th>
+            <th>最差凹度</th>
+            <th>最差紧密度</th>
+            <th>区域</th>
+            <th>最差平滑度</th>
+            <th>半径</th>
+            <th>最差纹理</th>
+            <th>是否为癌症</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for upload in data_list %}
+            <tr>
+                <td>{{ upload.perimeter_worst }}</td>
+                <td>{{ upload.concave_points_worst }}</td>
+                <td>{{ upload.area_mean }}</td>
+                <td>{{ upload.radius_worst }}</td>
+                <td>{{ upload.area_worst }}</td>
+                <td>{{ upload.perimeter_mean }}</td>
+                <td>{{ upload.concave_points_mean }}</td>
+                <td>{{ upload.radius_mean }}</td>
+                <td>{{ upload.concavity_mean }}</td>
+                <td>{{ upload.concavity_worst }}</td>
+                <td>{{ upload.compactness_worst }}</td>
+                <td>{{ upload.area_se }}</td>
+                <td>{{ upload.smoothness_worst }}</td>
+                <td>{{ upload.radius_se }}</td>
+                <td>{{ upload.texture_worst }}</td>
+                <td>{{ upload.diagnosis }}</td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="demo2" style="margin: 10px auto"></div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        //Demo
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+            });
+            //监听提交
+            form.on("select(sheng)", function (data) {
+                {#alert(data.value); // 获取选中的值#}
+                var sheng = data.value
+                $.ajax({
+                    url: '/getcol/',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        'sheng': sheng
+                    },
+                    success: function (data) {
+                        {#console.log(data.data)#}
+                        $('select[name="city"]').find('option').remove()
+                        $('select[name="xian"]').find('option').remove()
+                        form.render('select');//重点：重新渲染select
+
+                        var html = '<option value="">请选择市</option>'
+                        for (var i = 0; i < data.data.length; i++) {
+                            html += '<option value="' + data.data[i] + '">' + data.data[i] + '</option>'
+                        }
+                        $('select[name="city"]').html(html)
+                        $('select[name="xian"]').html('<option value="">请选择县</option>')
+                        form.render('select');//重点：重新渲染select
+                    }
+                });
+            });
+        });
+
+        $('.layui-btn-danger').click(function () {
+            var id = $(this).attr('id_')
+            $('.modal').removeClass('hidden')
+            $('.loading').removeClass('hidden')
+            $.ajax({
+                url: '/scrawl/',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+                    if (data.status == 'ok') {
+                        $('.modal').addClass('hidden')
+                        $('.loading').addClass('hidden')
+                        alert('爬取或者更新数据完成')
+                        location.reload()
+                    }
+                }
+            });
+        })
+
+    </script>
+    <script>
+        layui.use(['laypage', 'layer'], function () {
+            var laypage = layui.laypage
+                , layer = layui.layer;
+
+            //自定义样式
+            laypage.render({
+                elem: 'demo2'
+                , limit: 100
+                , count: 1000
+                , theme: '#1E9FFF'
+                , curr: {{ page|safe }}
+                , jump: function (obj, first) {
+                    //obj包含了当前分页的所有参数，比如：
+                    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                    console.log(obj.limit); //得到每页显示的条数
+
+                    //首次不执行
+                    if (!first) {
+                        //do something
+                        location.href = "/?page=" + obj.curr;
+                    }
+
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

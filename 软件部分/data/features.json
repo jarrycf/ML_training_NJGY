@@ -1,0 +1,1 @@
+{"features": ["transaction_date", "house_age", "nearest_mrt", "stores", "latitude", "longitude"], "target": "house price of unit area"}
