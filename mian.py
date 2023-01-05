@@ -41,9 +41,37 @@ clf.fit(data, estimator.labels_)
 clf.feature_importances_
 
 from sklearn.ensemble import ExtraTreesClassifier
-clf = ExtraTreesClassifier()
+clf = ExtraTreesClassifier()        
 clf.fit(train_x, train_y.astype(int))
 clf.feature_importances_
+w = 11
+w = 122
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+clf = ExtraTreesClassifier()        
+clf.fit(train_x, train_y.astype(int))
+clf.feature_importances_
+w = 11
+clf = ExtraTreesClassifier()        
+clf.fit(train_x, train_y.astype(int))
+clf.feature_importances_
+w = 11
+clf = ExtraTreesClassifier()        
+clf.fit(train_x, train_y.astype(int))
+clf.feature_importances_
+w = 11
+clf = ExtraTreesClassifier()        
+clf.fit(train_x, train_y.astype(int))
+clf.feature_importances_
+w = 11
+clf = ExtraTreesClassifier()        
+clf.fit(train_x, train_y.astype(int))
+clf.feature_importances_
+w = 11
+
 
 
 param_4={'C':[1, 2, 4], 'penalty':['l1', 'l2']}
